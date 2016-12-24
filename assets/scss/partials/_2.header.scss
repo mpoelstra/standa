@@ -1,0 +1,49 @@
+/* HEADER */
+header.main { 
+	position: relative;
+	height: 127px;
+	z-index: 1;
+	a.logo {
+		display:block;
+		width:128px;
+		height:68px;
+		background: url(assets/images/logo.png) 0 0 no-repeat;
+		background-size: 100% 100%;
+		font-size:0.1em;
+		text-indent: -999px;
+		overflow: hidden;
+		position: absolute;
+		left: 15px;
+		top: 37px;
+	}
+
+
+	.menu-btn {
+		display: block;
+		outline: 0;
+		width: 153px;
+		height: 46px;
+		background: url(assets/images/menu.png) 0 0 no-repeat;
+		background-size: 153px 138px; //dom size = 153px 46px
+		font-size:0.1em;
+		text-indent: -999px;
+		overflow: hidden;
+		position: absolute;
+		right: 15px;
+		top: 49px;
+		border: 0;
+		border-radius: 0;
+		outline: 0;
+		padding: 0;
+		cursor: pointer;
+
+		&:hover {
+			background-position: 0 -92px;
+		}
+
+		&.open {
+			background-position: 0 -46px;
+		}
+
+	}
+}

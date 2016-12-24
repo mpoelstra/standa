@@ -1,0 +1,135 @@
+/* POSTS */
+
+/* Blog Page */
+
+
+.alignleft { float: left; width: auto; margin: 5px 15px 15px 0; }
+.alignright { float: right; width: auto; margin: 5px 0 15px 15px; }
+.aligncenter { text-align: center; margin-bottom: 5px;}
+img.aligncenter { margin-left: auto; margin-right: auto; display: block; max-width: 100% !important; height: auto !important; }
+img.alignnone { max-width: 100% !important; height: auto !important; }
+
+
+article {
+	a {
+		font-weight: normal;
+	}
+	ol,
+	ul {
+		margin-bottom: 1.4rem;
+		ol,
+		ul {
+			margin:0;
+		}
+	}
+	li { 
+		margin: 0 0 20px 20px;
+		list-style: square;
+	}
+	ol li {
+		list-style: decimal;
+		ol li {
+			list-style: lower-latin;
+			margin-left: 2.1rem;
+		}
+	}
+}
+
+
+.post {
+	@extend %block;
+
+	.posts & {
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.post_date {
+		width: 130px;
+		float: left;
+
+		.date {
+			width: 130px;
+			height: 130px;
+			background: $black;
+			color: $white;
+			font-size: 3rem;
+			span {
+				display: block;
+				width: 100%;
+				text-align: center;
+			}
+			.date_day {
+				color: $white;
+				font-family: 'Merriweather', sans-serif;
+				font-size: 5rem;
+				padding-top: 2.2rem;
+			}
+			.date_month-year {
+				color: $yellow;
+				font-size: 2rem;
+				padding-top: 0.3rem;
+				text-transform: lowercase;
+			}
+			.date_time {
+				font-size: 1.6rem;
+				padding-top: 0.5rem;
+			}
+
+			&.event {
+				.date_day {
+					padding-top: 1.3rem;
+				}
+			}
+		}
+
+		.image {
+			width: 100%;
+			a,
+			img {
+				display: block;
+			}
+			img {
+				width: 100%;
+			}
+		}
+	}
+
+	.post_article {
+		float: left;
+		width: calc(100% - 130px);
+		padding-left: 40px;
+
+		&.post_article--full {
+			width: 100%;
+			float: none;
+			padding: 0;
+		}
+
+		.image {
+			text-align: center;
+			margin-bottom: 2rem;
+			img {
+				display: inline-block;
+				max-width: 100%;
+				height: auto;
+			}
+		}
+	}
+	
+}
+
+.post {
+	@include respond-to(handhelds) {
+		.post_date {
+			display: none;
+		}
+
+		.post_article {
+			float: none;
+			width: 100%;
+			padding-left: 0px;
+		}
+	}
+}

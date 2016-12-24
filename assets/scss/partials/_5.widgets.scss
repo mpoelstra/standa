@@ -1,0 +1,74 @@
+/****************************************
+WIDGETS
+*****************************************/
+
+aside {
+	@include respond-to(handhelds) {
+		.archive & {
+			padding-top: 30px;
+		}
+	}
+	.box {
+		padding: 3rem;
+		background: rgba(0, 0, 0, 0.5);
+		margin-bottom: $verticalMargin;
+		h2 {
+			font-family: 'Merriweather', sans-serif;
+			font-size: 2rem;
+		}
+
+		a {
+			color: $white;
+			&:hover {
+				color: $white;
+				text-decoration: underline;
+			}
+		}
+
+		&.widget_archive {
+			li {
+				color: $white;
+				list-style: disc;
+				margin-left: 16px;
+			}
+		}
+
+		&.widget-archive-link {
+			margin-top: -35px;
+			padding: 0 30px 30px 30px;
+		}
+
+		&.widget-media {
+			padding: 3rem 3rem 1.7rem 3rem;
+			.media-row {
+				margin: 0;
+				padding: 0;
+			}
+		}
+
+		&.widget-page {
+			a {
+				color: $yellow;
+				word-break: break-all;
+			}
+
+			ol,
+			ul {
+				color: #fff;
+				li {
+					margin: 0 0 20px 20px;
+				}
+				
+			}
+
+			ol {
+				list-style-type: decimal;
+			}
+
+			ul {
+				list-style-type: disc;
+			}
+
+		}
+	}
+}

@@ -1,0 +1,49 @@
+/* FOOTER */
+.footer { 
+	margin: 70px 0;
+	background: $grey;
+	padding: 70px;
+
+	p {
+		font-size: 1.2rem;
+		line-height: 2rem;
+	}
+
+	h2 {
+		font-size: 2rem;
+		height: 40px;
+		line-height: 5rem;
+		&.logo {
+			margin-top: 11px;
+			width:53px;
+			height:29px;
+			background: url(assets/images/logo.png) 0 0 no-repeat;
+			background-size: 100% 100%;
+			font-size:0.1em;
+			text-indent: -999px;
+		}
+	}
+
+	a,
+	strong {
+		font-weight: normal;
+		color: $red;
+	}
+
+	ul li {
+		list-style: none;
+		font-size: 1.2rem;
+		line-height: 2rem;
+		&:before {
+			content: "• ";
+			color: $red;
+		}
+		a {
+			color: $black;
+			&:hover {
+				color: $red;
+				text-decoration: underline;
+			}
+		}
+	}
+}

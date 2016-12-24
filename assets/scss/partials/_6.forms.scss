@@ -1,0 +1,128 @@
+/* FORMS */
+
+::-webkit-input-placeholder { color:#fff; }
+::-moz-placeholder { color:#fff; } /* firefox 19+ */
+:-ms-input-placeholder { color:#fff; } /* ie */
+input:-moz-placeholder { color:#fff; }
+
+form { }
+
+/* Gravity Forms */
+
+.gform_description,
+.gform_heading,
+.gform_confirmation_message {
+	line-height:2.5rem;
+  	color: $white;
+  	font-size: 1.5rem;
+  	padding-bottom:1.5rem;
+  	margin: 0;
+}
+
+.gform_wrapper input[type=submit] {
+	display: inline-block;
+	color: $white;
+	background: none;
+	line-height: 3rem;
+	font-size: 1.4rem;
+	padding: 0 10px;
+	border: 1px solid $yellow;
+	border-radius: 0;
+	cursor: pointer;
+	margin-top: 1.8rem;
+	&:hover {
+		color: $white;
+		text-decoration: underline;
+	}
+}
+
+.gform_wrapper .validation_message,
+.gform_wrapper .validation_error {
+	color: $yellow;
+	font-size: 1.5rem;
+	border-color: $yellow;
+	line-height:2.5rem;
+	padding-bottom:0;
+  	margin: 0;
+}
+.gform_wrapper .validation_message {
+	padding-left: 10px;
+}
+
+.gform_wrapper li.gfield.gfield_error.gfield_contains_required {
+	margin: 0;
+}
+
+.gform_wrapper li.gfield.gfield_error, .gform_wrapper li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
+	background: none;
+	border: none;
+}
+
+.gform_wrapper li.gfield_error input[type=email], 
+.gform_wrapper li.gfield_error input[type=number], 
+.gform_wrapper li.gfield_error input[type=password], 
+.gform_wrapper li.gfield_error input[type=tel], 
+.gform_wrapper li.gfield_error input[type=text], 
+.gform_wrapper li.gfield_error textarea {
+	border-color: $yellow;
+}
+
+.gform_wrapper {
+	.gfield_label {
+		display: none;
+	}
+	.ginput_container {
+		margin: 2rem 0 0 0;
+	}
+	.gform_footer {
+		margin: 0;
+		padding: 0;
+	}
+
+	ul li {
+		list-style: none !important;
+		margin: 0 !important;
+	}
+}
+
+.gform_wrapper textarea {
+	background: #274267;
+	padding: 5px 10px;
+	color: $white;
+	width: 100%;
+	border: 0;
+	border-radius: 0;
+	line-height:2.5rem;
+  	font-size: 1.5rem;
+	outline: 0;
+	resize: none;
+	&:focus {
+		outline: 0;
+	}
+	&.small {
+		height: 200px;
+	}
+}
+
+.gform_wrapper input[type=text], 
+.gform_wrapper input[type=email], 
+.gform_wrapper input[type=tel], 
+.gform_wrapper input[type=number], 
+.gform_wrapper input[type=password] {
+	line-height:2.5rem;
+  	color: $white;
+  	font-size: 1.5rem;
+	border: 0;
+	width: 100%;
+	background: #274267;
+	padding: 5px 10px;
+	outline: 0;
+	border-radius: 0;
+	&:focus {
+		outline: 0;
+	}
+	@media (min-width: 992px) {
+		width: 47.5%;
+	}
+}
+

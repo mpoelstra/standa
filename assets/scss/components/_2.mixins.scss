@@ -1,0 +1,59 @@
+/**
+ * Create vendor-prefixed CSS in one go, e.g.
+ *
+   @include vendor(border-radius, 4px);
+ *
+ */
+@mixin vendor($property, $value...) {
+    -webkit-#{$property}:$value;
+    -moz-#{$property}:$value;
+    -ms-#{$property}:$value;
+    -o-#{$property}:$value;
+    #{$property}:$value;
+}
+
+%block {
+	display: block;
+	margin-bottom: $verticalMargin;
+	background: rgba(0, 0, 0, 0.5);
+	color: $white;
+	position: relative;
+	padding: 3rem;
+	overflow: hidden;
+}
+
+%block_title {
+	padding-bottom: 2rem;
+	font-size: 2rem;
+	font-family: 'Merriweather', sans-serif;
+	color: $yellow;
+	width: 100%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	margin: 0;
+}
+
+%block_proza {
+	line-height: 2.4rem;
+	font-size: 1.5rem;
+	overflow: hidden;
+	padding: 0;
+}
+
+
+$break-small: 640px;
+$break-large: 1024px;
+$break-menu: 1023px;
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: $break-small) { @content; }
+  }
+  @else if $media == medium-screens {
+    @media only screen and (min-width: $break-small + 1) and (max-width: $break-large) { @content; }
+  }
+  @else if $media == wide-screens {
+    @media only screen and (min-width: $break-large) { @content; }
+  }
+}
