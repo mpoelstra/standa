@@ -1,3 +1,1 @@
-##Wereldwinkel leek
-
-wordpress theme
+# standa
