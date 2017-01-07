@@ -4,6 +4,11 @@
 	background: $grey;
 	padding: 70px;
 
+	@include respond-to(handhelds) {
+		padding: 15px;
+		margin-bottom: 15px;
+	}
+
 	p {
 		font-size: 1.2rem;
 		line-height: 2rem;

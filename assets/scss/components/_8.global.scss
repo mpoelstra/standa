@@ -15,6 +15,10 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: $baseFontSizePX;
   color: $black;
+
+  &.no-scroll {
+    overflow: hidden;
+  }
 }
 
 strong {
@@ -52,6 +56,12 @@ h1 {
   line-height: 5.5rem;
   text-indent: -3px;
 
+  @include respond-to(handhelds) {
+    font-size: 3rem;
+    margin-bottom: 0;
+    line-height: 3.5rem;
+  }
+
   &.center {
     text-align: center;
   }
@@ -62,6 +72,11 @@ h2 {
   font-weight: 300;
   line-height: 4rem;
   margin-bottom: 1rem;
+
+  @include respond-to(handhelds) {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
 }
 
 h3 {
@@ -70,6 +85,10 @@ h3 {
   font-weight: 400;
   margin-bottom: 0.5em;
 
+  @include respond-to(handhelds) {
+    font-size: 1.5rem;
+  }
+
 }
 
 p {
@@ -77,6 +96,11 @@ p {
   color: $textColor;
   font-size: 1.4rem;
   padding-bottom:1.4rem;
+
+  @include respond-to(handhelds) {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
 }
 
 ol,
@@ -84,5 +108,9 @@ ul {
   li {
     line-height: 2.5rem;
     font-size: 1.4rem;
+    @include respond-to(handhelds) {
+      font-size: 1.2rem;
+      line-height: 2rem;
+    }
   }
 }

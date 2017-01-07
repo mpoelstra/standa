@@ -1,8 +1,23 @@
 /* HEADER */
+
+main {
+	@include respond-to(handhelds) {
+		padding-top: 65px;
+	}
+}
+
 header.main { 
 	position: relative;
 	height: 127px;
 	z-index: 1;
+	@include respond-to(handhelds) {
+		height: 65px;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background: white;
+	}
 	a.logo {
 		display:block;
 		width:128px;
@@ -15,6 +30,12 @@ header.main {
 		position: absolute;
 		left: 15px;
 		top: 37px;
+
+		@include respond-to(handhelds) {
+			width: 64px;
+			height: 34px;
+			top: 19px;
+		}
 	}
 
 
@@ -38,11 +59,26 @@ header.main {
 		cursor: pointer;
 
 		&:hover {
-			background-position: 0 -92px;
+			//background-position: 0 -92px;
 		}
 
 		&.open {
 			background-position: 0 -46px;
+		}
+
+		@include respond-to(handhelds) {
+			width: 100px;
+			height: 30px;
+			top: 19px;
+			background-size: 100px 90px; //dom size = 153px 46px
+
+			&:hover {
+				//background-position: 0 -60px;
+			}
+
+			&.open {
+				background-position: 0 -30px;
+			}
 		}
 
 	}
