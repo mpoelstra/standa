@@ -2,29 +2,34 @@
 	
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-sm-8">
+			<div class="col-xs-12">
 				<?php
 
 					if ( have_posts() ) while ( have_posts() ) : the_post();
-						get_template_part( 'template-parts/part-content', 'single' );
+						?>
+						<div class="post">
+							<div class="post_article post_article--full">
+								<article>
+									<header>
+										<h1><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h1>
+									</header>
+									<?php if ( has_post_thumbnail() ) { ?>
+										<div class="image">
+												<?php
+												$imageSrc = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large' );
+												echo '<img src="' . $imageSrc[0] . '" alt="' . get_the_title() . '">';
+												?>
+										</div>
+									<?php } ?>
+									<div class="proza">
+										<?php the_content(); ?>
+									</div>
+								</article>
+							</div>
+						</div>
+						<?php
 					endwhile;
 				?>
-			</div>
-			<div class="col-xs-12 col-sm-4">
-				<aside>
-					<?php
-						$extra_page = get_field('vkso-page-extra');
-						if ($extra_page) {
-							$extra_page_title = get_field('vkso-page-title');
-							?>
-							<div class="box widget-page">
-								<?php if ($extra_page_title) { ?><h2><?php echo $extra_page_title; ?></h2> <?php } ?>
-								<?php echo $extra_page; ?>
-							</div>
-							<?php
-						}
-					?>
-				</aside>
 			</div>
 		</div>
 	</div>

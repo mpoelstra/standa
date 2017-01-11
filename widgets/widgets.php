@@ -1,7 +1,7 @@
 <?php 
 // General redenr functions
 
-require_once(TEMPLATEPATH . '/widgets/widget-functions.php');
+//require_once(TEMPLATEPATH . '/widgets/widget-functions.php');
 /*
 //Nieuws
 require_once(TEMPLATEPATH . '/widgets/widget-nieuws.php');
@@ -13,6 +13,6 @@ require_once(TEMPLATEPATH . '/widgets/widget-facebook.php');
 //require_once(TEMPLATEPATH . '/widgets/widget-facebook-url.php');
 
 */
-require_once(TEMPLATEPATH . '/widgets/widget-event-archive.php');
+//require_once(TEMPLATEPATH . '/widgets/widget-event-archive.php');
 
 ?>

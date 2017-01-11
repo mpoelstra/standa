@@ -100,7 +100,7 @@
 
 				slides.slick({
 					slidesToShow: 1,
-					autoplay: false,
+					autoplay: true,
 					autoplaySpeed: slideSpeed,
 					arrows: true,
 					dots: true
