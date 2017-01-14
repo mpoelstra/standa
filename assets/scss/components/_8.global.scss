@@ -16,7 +16,8 @@ body {
   font-size: $baseFontSizePX;
   color: $black;
 
-  &.no-scroll {
+  &.no-scroll,
+  &.show-overlay {
     overflow: hidden;
   }
 }

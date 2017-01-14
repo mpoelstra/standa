@@ -265,6 +265,26 @@
 		display: none;
 		padding: 30px 3px;
 		overflow: hidden;
+
+		ol,
+		ul {
+			margin-bottom: 1.4rem;
+			ol,
+			ul {
+				margin:0;
+			}
+		}
+		li { 
+			margin: 0 0 0 20px;
+			list-style: square;
+		}
+		ol li {
+			list-style: decimal;
+			ol li {
+				list-style: lower-latin;
+				margin-left: 2.1rem;
+			}
+		}
 	}
 
 	.page_image {

@@ -12,35 +12,6 @@
     #{$property}:$value;
 }
 
-%block {
-	display: block;
-	margin-bottom: $verticalMargin;
-	background: rgba(0, 0, 0, 0.5);
-	color: $white;
-	position: relative;
-	padding: 3rem;
-	overflow: hidden;
-}
-
-%block_title {
-	padding-bottom: 2rem;
-	font-size: 2rem;
-	font-family: 'Merriweather', sans-serif;
-	color: $yellow;
-	width: 100%;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	margin: 0;
-}
-
-%block_proza {
-	line-height: 2.4rem;
-	font-size: 1.5rem;
-	overflow: hidden;
-	padding: 0;
-}
-
 
 $break-small: 640px;
 $break-large: 1024px;
@@ -56,4 +27,27 @@ $break-menu: 1023px;
   @else if $media == wide-screens {
     @media only screen and (min-width: $break-large) { @content; }
   }
+}
+
+
+
+%btn {
+	margin: 0;
+	border-radius: 0;
+	color: $black;
+	background: none;
+	border:1px solid $black;
+	border-bottom-width: 3px;
+	height: 50px;
+	padding: 0 25px;
+	font-size: 2rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	cursor: pointer;
+	outline: 0;
+	letter-spacing: 3px;
+
+	&:hover {
+			border-bottom-color: $red;
+	}
 }

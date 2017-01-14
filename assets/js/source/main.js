@@ -7,7 +7,8 @@
 		//var clickHandler = Modernizr.touch ? 'touchstart' : 'click',
 		var clickHandler = 'click',
 			menuBtn = $(".menu-btn"),
-			logo = $('.main a.logo');
+			logo = $('.main a.logo'),
+			mobileWidth = 767;
 
 		menuBtn.on(clickHandler, function(e) {
 			e.preventDefault();
@@ -15,8 +16,7 @@
 				menu = element.attr('data-href'),
 				viewportWidth = $( window ).width();
 
-			console.log(viewportWidth);
-			if (viewportWidth > 767) {
+			if (viewportWidth > mobileWidth) {
 				$(menu).slideToggle();
 			} else {
 				$(menu).toggleClass('menu--open');
@@ -29,7 +29,7 @@
 		logo.on(clickHandler, function(e) {
 
 			var viewportWidth = $( window ).width();
-			if (viewportWidth < 768) {
+			if (viewportWidth < mobileWidth + 1) {
 				e.preventDefault();
 				
 				$('#menu').removeClass('menu--open');
@@ -43,15 +43,17 @@
 			}
 		});
 
-		equalHeightFeatures($);
+		equalHeightFeatures($, mobileWidth);
 
 		accordion($, clickHandler);
+
+		initOverlay($, clickHandler);
 
 		$('a[href*="#"]:not([href="#"])').on(clickHandler, function(e) {
 			var viewportWidth = $( window ).width(),
 				scrollSpeed = 500,
 				offset = 15;
-			if (viewportWidth < 768) {
+			if (viewportWidth < mobileWidth + 1) {
 				scrollSpeed = 1000;
 				offset = 65 + 15; //fixed header height + extra white space
 				$('#menu').removeClass('menu--open');
@@ -113,11 +115,43 @@
 			equalHeightFeatures($);
 		});
 
-	function equalHeightFeatures($) {
+	function initOverlay($, clickHandler) {
+		var productBtn = $('.product_btn'),
+			overlays = $('.product-form, .product-overlay'),
+			closeBtns = $('.product-form_close, .product-overlay'),
+			form = $('.product-form'),
+			formCloseBtn = $('.product-form_close'),
+			fadeSpeed = 'fast';
+
+		productBtn.on(clickHandler, function(e) {
+			e.preventDefault();
+			
+			overlays.fadeIn(fadeSpeed, function() {
+				$('body').addClass('show-overlay');
+				formCloseBtn[0].focus();
+				form.attr('aria-hidden', 'false');
+				$('.main').attr('aria-hidden', 'true');
+			});
+		});
+
+		closeBtns.on(clickHandler, function(e) {
+			e.preventDefault();
+
+			overlays.fadeOut(fadeSpeed, function() {
+				$('body').removeClass('show-overlay');
+				form.attr('aria-hidden', 'true');
+				$('.main').attr('aria-hidden', 'false');
+				$('body')[0].focus();
+			});
+			
+		});
+
+	}
+
+	function equalHeightFeatures($, mobileWidth) {
 		var viewportWidth = $( window ).width(),
 			features = $(".features").find('.feature');
-		console.log(viewportWidth);
-		if (viewportWidth > 767) {
+		if (viewportWidth > mobileWidth) {
 			var maxHeight = 0;
 
 			features.each(function( index ) {

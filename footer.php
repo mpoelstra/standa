@@ -60,6 +60,18 @@
 </footer>
 
 
+<div class="product-overlay"></div>
+
+<div class="product-form" aria-hidden="true">
+    <button class="product-form_close" aria-label="Sluit bestelformulier"></button>
+    <?php
+        $form = 1;
+        gravity_form_enqueue_scripts($form, true);
+    	
+        //gravity_form( $id_or_title, $display_title = true, $display_description = true, $display_inactive = false, $field_values = null, $ajax = false, $tabindex, $echo = true );
+    	gravity_form($id = $form, $display_title = true, $display_description = true, $display_inactive = false, $field_values = $field_values, $ajax = true, $tabindex = 1);
+    ?>
+</div>
 
 <!-- script files should be placed at the bottom for performance reasons -->
 <?php wp_footer(); ?>

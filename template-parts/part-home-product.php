@@ -15,4 +15,7 @@
     <div class="product_price">
         <?php echo '&euro; ' . number_format($standa_price, 2, ',', '.') . ' '; ?>
     </div>
+    <div>
+        <button class="product_btn" aria-label="Bestellen">Bestellen</button>
+    </div>
 </article>

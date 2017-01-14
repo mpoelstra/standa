@@ -17,4 +17,4 @@
   </div>
 </header>
 
-<main>
+<main class="main">
