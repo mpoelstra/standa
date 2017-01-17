@@ -124,15 +124,26 @@
     display: none;
     z-index: 11;
     width: 700px;
-    height: 500px;
+    height: 600px;
     top: 50%;
     left: 50%;
     margin-left: -350px;
-    margin-top: -250px;
+    margin-top: -300px;
     background: white;
     border: 1px solid $black;
     border-bottom-width: 3px;
-    padding: 100px;
+
+    .product-form_inner {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        padding: 50px;
+        overflow-x: hidden;
+        overflow-y: auto; /* has to be scroll, not auto */
+        -webkit-overflow-scrolling: touch;
+    }
 
     .product-form_close {
         cursor: pointer;
@@ -149,6 +160,7 @@
         color: white;
         font-weight: 300;
         text-transform: uppercase;
+        z-index: 3;
 
         &:focus {
             outline: 0;
@@ -184,11 +196,14 @@
     }
 
     @include respond-to(handhelds) {
-        width: 80%;
+        width: 90%;
         height: 80%;
         margin: 0;
-        left: 10%;
+        left: 5%;
         top: 10%;
-        padding: 30px;
+
+         .product-form_inner {
+            padding: 30px;
+        }
     }
 }

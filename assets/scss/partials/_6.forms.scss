@@ -23,6 +23,23 @@ form { }
 	}
 }
 
+.gform_title {
+	font-size: 2.2rem;
+    text-indent: 0;
+    line-height: 3.5rem;
+    margin-top: 0;
+	font-weight: 400;
+    color: $black;
+}
+
+.gsection_title {
+	font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+	color: $red;
+}
+
 .gform_wrapper .validation_message,
 .gform_wrapper .validation_error {
 	line-height:2.5rem;
@@ -76,6 +93,7 @@ form { }
 	}
 }
 
+.gform_wrapper select,
 .gform_wrapper textarea,
 .gform_wrapper input[type=text], 
 .gform_wrapper input[type=email], 
@@ -106,6 +124,20 @@ form { }
   	
 }
 
+.gform_wrapper select {
+	height: 37px;
+}
+
+.gform_wrapper textarea {
+    height: 100px;
+}
+
+.gf_progressbar {
+	display: none;
+}
+
+.gform_previous_button,
+.gform_next_button,
 .gform_wrapper input[type=submit] {
 	@extend %btn;
 	float: right;
@@ -116,6 +148,62 @@ form { }
 		height: 40px;
 		padding: 0 15px;
 		font-size: 1.6rem;
+		letter-spacing: normal;
 	}
 }
 
+.gform_previous_button,
+.gform_next_button {
+	background: $lightGrey;  
+}
+
+.gform_previous_button {
+	float: left;
+}
+
+#gform_1 {
+	.gform_previous_button,
+	input[type=submit] {
+		@include respond-to(handhelds) {
+			width: auto;
+		}
+	}
+
+	input[type=submit] {
+		@include respond-to(handhelds) {
+			float: right;
+		}
+	}
+
+}
+
+.ginput_quantity {
+	width: 50px !important;
+	padding: 5px 5px !important;
+	text-align: center;
+}
+
+.gfield_price {
+	label {
+		display: block !important;
+    	font-weight: bold !important;
+    	text-transform: uppercase !important;
+	}
+
+	.ginput_total {
+		color: $red;
+	}
+}
+
+.gform_wrapper .payment-method,
+.gform_wrapper .payment-bank {
+	.gfield_label {
+		display: block;
+		font-weight: bold;
+		padding: 10px 0;
+	}
+}
+
+.gform_wrapper .payment-bank {
+	padding-bottom: 20px;
+}

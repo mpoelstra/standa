@@ -64,13 +64,37 @@
 
 <div class="product-form" aria-hidden="true">
     <button class="product-form_close" aria-label="Sluit bestelformulier"></button>
+	<div class="product-form_inner">
     <?php
         $form = 1;
+
+		//hack checks
+		if (isset($_GET['standa-product-name'])) {
+			exit;
+		}
+
+		if (isset($_GET['standa-product-price'])) {
+			exit;
+		}
+
+		if (isset($_GET['standa-product-quantity'])) {
+			exit;
+		}
+
+		$standa_price = get_field('standa_price', 'option');
+
+		$field_values = array(
+			'standa-product-name' => 'Standa',
+			'standa-product-price' => $standa_price,
+			'standa-product-quantity' => 1
+		);
+
         gravity_form_enqueue_scripts($form, true);
     	
         //gravity_form( $id_or_title, $display_title = true, $display_description = true, $display_inactive = false, $field_values = null, $ajax = false, $tabindex, $echo = true );
     	gravity_form($id = $form, $display_title = true, $display_description = true, $display_inactive = false, $field_values = $field_values, $ajax = true, $tabindex = 1);
     ?>
+	</div>
 </div>
 
 <!-- script files should be placed at the bottom for performance reasons -->

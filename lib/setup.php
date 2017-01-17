@@ -114,7 +114,7 @@ remove_action('wp_print_styles', 'print_emoji_styles');
 remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
 remove_action( 'admin_print_styles', 'print_emoji_styles' );
 
-add_filter( 'gform_confirmation_anchor_1', '__return_false' );
+add_filter( 'gform_confirmation_anchor', '__return_false' );
 
 //Custom excerpt length
 function my_excerpt_length($length) {
