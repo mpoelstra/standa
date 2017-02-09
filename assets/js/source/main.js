@@ -87,27 +87,43 @@
 
     $(window)
 		.load(function() {
-			var slides = $('.slides'),
+			var sliders = $('.slides'),
 				slideSpeed = 2000;
-			if (slides.length) {
-				slideSpeed = parseInt(slides.attr('data-speed')) * 1000;
-				slides.on('init', function(event, slick){
-					//init
-					/*
-					setTimeout(function() {
-						$('.loader').fadeOut('slow');
-					}, 1000);
-					*/
-				});
+				showDots = false;
+			if (sliders.length) {
+				$.each(sliders, function( index, slider ) {
+					var $slider = $(slider);
+					slideSpeed = parseInt($slider.attr('data-speed')) * 1000;
+					showDots = $slider.attr('data-dots') ? true : false;
+					$slider.on('init', function(event, slick) {
+						if (showDots) {
+							var slides = slick.$slides,
+								dots = slick.$dots.children('li');
 
-				slides.slick({
-					slidesToShow: 1,
-					autoplay: true,
-					autoplaySpeed: slideSpeed,
-					arrows: true,
-					dots: true
-				});
+							$.each(slides, function( index, slide ) {
+								var slideColor = slide.getAttribute('data-color');
+								if (slideColor) {
+									$(dots[index]).find('button').css( 'background', slideColor );
+								}
+							});
+						}
+						//init
+						/*
+						setTimeout(function() {
+							$('.loader').fadeOut('slow');
+						}, 1000);
+						*/
+					});
 
+					$slider.slick({
+						slidesToShow: 1,
+						autoplay: true,
+						autoplaySpeed: slideSpeed,
+						arrows: true,
+						dots: showDots
+					});
+
+				});
 			}
 		
 		})

@@ -23,7 +23,9 @@ html {
   padding-left: 15px;
   padding-right: 15px;
   position: relative;
+  max-width: 1440px;
 }
+
 @media (min-width: 768px) {
   .container {
     //width: 750px;
@@ -31,19 +33,13 @@ html {
 }
 @media (min-width: 992px) {
   .container {
-    //width: 970px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    width: 1170px;
 
     &.container--small {
-      width: calc(1170px - 7%);
+      padding: 0 7%;
     }
 
     &.container--smaller {
-      width: calc(1170px - 14%);
+      padding:0 14%;
     }
   }
 }

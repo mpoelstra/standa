@@ -85,9 +85,8 @@
 				margin:0 3px;
 				line-height: normal;
 				button {
-					border-radius: 50%;
-					width: 10px;
-					height: 10px;
+					width: 30px;
+					height: 30px;
 					background: $black;
 					border: none;
 					padding: 0;
@@ -100,7 +99,7 @@
 				}
 				&.slick-active {
 					button {
-						background: $red;
+						border: 2px solid $black;
 					}
 				}
 			}
