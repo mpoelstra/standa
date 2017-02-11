@@ -10,6 +10,16 @@
 			logo = $('.main a.logo'),
 			mobileWidth = 767;
 
+		if (window.location.hash) {
+			// Fragment exists
+			scrollToHash($, window.location.hash, mobileWidth, menuBtn);
+		}
+
+		$(window).on('hashchange', function(e) {
+			e.preventDefault();
+			scrollToHash($, window.location.hash, mobileWidth, menuBtn);
+		});
+
 		menuBtn.on(clickHandler, function(e) {
 			e.preventDefault();
 			var element = $(this),
@@ -49,40 +59,9 @@
 
 		initOverlay($, clickHandler);
 
-		$('a[href*="#"]:not([href="#"])').on(clickHandler, function(e) {
-			var viewportWidth = $( window ).width(),
-				scrollSpeed = 500,
-				offset = 15;
-			if (viewportWidth < mobileWidth + 1) {
-				scrollSpeed = 1000;
-				offset = 65 + 15; //fixed header height + extra white space
-				$('#menu').removeClass('menu--open');
-				menuBtn.removeClass('open');
-				$('body').removeClass('no-scroll');
-			}
+		initScrollLinks($, clickHandler, mobileWidth, menuBtn);
 
-			e.preventDefault();
-			if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-				var target = $(this.hash);
-				target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-				if (target.length) {
-					$('html, body').animate({ // was html, body
-						//html needed for firefox
-						//body needed for chrome
-						scrollTop: target.offset().top - offset
-					}, scrollSpeed)
-					.promise().then(function() {
-						// Called when the animation in total is complete
-						if (!target.hasClass('selected')) {
-							setTimeout(function() {
-								openPage(target);
-							}, 500);
-						}
-					});
-					return false;
-				}
-			}
-		});
+		
     });
 
     $(window)
@@ -107,6 +86,9 @@
 								}
 							});
 						}
+
+						$slider.addClass('loaded');
+						$slider.parent().addClass('loaded');
 						//init
 						/*
 						setTimeout(function() {
@@ -162,6 +144,52 @@
 			
 		});
 
+	}
+
+	function initScrollLinks($, clickHandler, mobileWidth, menuBtn) {
+		$('a[href*="#"]:not([href="#"])').on(clickHandler, function(e) {
+
+			if ($('body').hasClass('home')) {
+				e.preventDefault();
+				if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+					scrollToHash($, this.hash, mobileWidth, menuBtn);
+				}
+			}
+			
+		});
+	}
+
+	function scrollToHash($, hash, mobileWidth, menuBtn) {
+		var target = $(hash),
+			viewportWidth = $( window ).width(),
+			scrollSpeed = 500,
+			offset = 15;
+		if (viewportWidth < mobileWidth + 1) {
+			scrollSpeed = 1000;
+			offset = 65 + 15; //fixed header height + extra white space
+			$('#menu').removeClass('menu--open');
+			menuBtn.removeClass('open');
+			$('body').removeClass('no-scroll');
+		}
+
+		//target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+		if (target && target.length) {
+			$('html, body').animate({ // was html, body
+				//html needed for firefox
+				//body needed for chrome
+				scrollTop: target.offset().top - offset
+			}, scrollSpeed)
+			.promise().then(function() {
+				// Called when the animation in total is complete
+				window.location.hash = hash;
+				if (!target.hasClass('selected')) {
+					setTimeout(function() {
+						openPage(target);
+					}, 500);
+				}
+			});
+			return false;
+		}
 	}
 
 	function equalHeightFeatures($, mobileWidth) {

@@ -8,3 +8,107 @@
 .aligncenter { text-align: center; margin-bottom: 5px;}
 img.aligncenter { margin-left: auto; margin-right: auto; display: block; max-width: 100% !important; height: auto !important; }
 img.alignnone { max-width: 100% !important; height: auto !important; }
+
+.post {
+    padding: 30px 70px 0 70px;
+
+    @include respond-to(handhelds) {
+        padding: 30px 15px 0 15px;
+    }
+
+    header {
+        text-align: center;
+        padding: 0 7%;
+        @include respond-to(handhelds) {
+            padding: 0;
+        }
+        h2 {
+            color: $red;
+        }
+        .post_intro {
+            margin: 30px 0;
+            font-size: 2.3rem;
+            font-weight: 300;
+            line-height: 4rem;
+
+            @include respond-to(handhelds) {
+                font-size: 1.8rem;
+                line-height: 3rem;
+                margin: 15px 0;
+            }
+        }
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        line-height: 4rem;
+
+         @include respond-to(handhelds) {
+            font-size: 2rem;
+            line-height: 3rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    @extend %pages;
+
+    .post_proza {
+        padding-top: 50px;
+        @include respond-to(handhelds) {
+            padding-top: 25px;
+        }
+    }
+
+    &.post--images {
+        .post_proza {
+            overflow: hidden;
+            .proza_content {
+                width: 60%;
+                float: left;
+                @include respond-to(handhelds) {
+                    width: 100%;
+                    float: none;
+                }
+            }
+            aside {
+                width: 35%;
+                float: right;
+                @include respond-to(handhelds) {
+                    width: 100%;
+                    float: none;
+                }
+                img {
+                    display: inline-block;
+                    width: 100%;
+                    height: auto;
+                    margin-top: 30px;
+                    &:first-child {
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+        
+        &.left {
+            .post_proza .proza_content {
+                float: right;
+                @include respond-to(handhelds) {
+                    float: none;
+                }
+            }
+            .post_proza aside {
+                float: left;
+                @include respond-to(handhelds) {
+                    float: none;
+                }
+            }
+        }
+    }
+
+    
+}
