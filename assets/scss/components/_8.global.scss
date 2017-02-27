@@ -110,6 +110,7 @@ ul {
   li {
     line-height: 2.5rem;
     font-size: 1.4rem;
+    color: $textColor;
     @include respond-to(handhelds) {
       font-size: 1.3rem;
       line-height: 2.4rem;

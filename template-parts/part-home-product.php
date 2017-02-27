@@ -3,6 +3,7 @@
     $standa_subtitle = get_field('standa_subtitle', 'option');
     $standa_text = get_field('standa_text', 'option');
     $standa_price = get_field('standa_price', 'option');
+    $standa_order_url = get_field('standa_order-page', 'option');
 ?>
 <article class="product_wrapper">
     <header class="product_title">
@@ -16,6 +17,6 @@
         <?php echo '&euro; ' . number_format($standa_price, 2, ',', '.') . ' '; ?>
     </div>
     <div>
-        <button class="product_btn" aria-label="Bestellen">Bestellen</button>
+        <a href="<?php echo  $standa_order_url; ?>" class="product_btn" aria-label="Bestellen">Bestellen</a>
     </div>
 </article>

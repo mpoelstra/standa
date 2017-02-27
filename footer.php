@@ -22,33 +22,32 @@
 						<div class="col-xs-12 col-sm-3">
 							<div class="box">
 								<h2>Menu</h2>
-								<?php $pages = get_field('standa_items', 'option');
-								if (count($pages) > 0) { ?>
-									<ul class="menu">
-										<li class="menu_item">
-											<a href="#waarom">Waarom</a>
-										</li>
-										<?php foreach ($pages as $key => $page) {
-											if ($page['standa_item_title']) { ?>
-												<li class="menu_item">
-													<a href="#page<?php echo $key; ?>"><?php echo $page['standa_item_title']; ?></a>
-												</li>
-											<?php } ?>
-										<?php } ?>
-									</ul>
-								<?php } ?>
+								<ul class="menu">
+									<?php renderMenu($footer = true); ?>
+								</ul>
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-3">
 							<div class="box">
-								<h2>Extra</h2>
 								<?php echo $footerExtra; ?>
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-2">
 							<div class="box">
-								<h2>Contact</h2>
 								<?php echo $footerContact; ?>
+								<?php 
+									$facebook = get_field('standa_facebook', 'option');
+									$linkedin = get_field('standa_linkedin', 'option');
+
+									if ($facebook || $linkedin) {
+										?>
+											<ul class="social">
+												<?php if ($facebook) { ?><li><a class="facebook" href="<?php echo $facebook; ?>" target="_blank" title="Volg ons op Facebook"></a></li><?php } ?>
+												<?php if ($linkedin) { ?><li><a class="linkedin" href="<?php echo $linkedin; ?>" target="_blank" title="Volg ons op LinkedIn"></a></li><?php } ?>
+											</ul>
+										<?php
+									}
+								?>
 							</div>
 						</div>
 
@@ -58,44 +57,6 @@
 		</div>
 	</div>
 </footer>
-
-
-<div class="product-overlay"></div>
-
-<div class="product-form" aria-hidden="true">
-    <button class="product-form_close" aria-label="Sluit bestelformulier"></button>
-	<div class="product-form_inner">
-    <?php
-        $form = 1;
-
-		//hack checks
-		if (isset($_GET['standa-product-name'])) {
-			exit;
-		}
-
-		if (isset($_GET['standa-product-price'])) {
-			exit;
-		}
-
-		if (isset($_GET['standa-product-quantity'])) {
-			exit;
-		}
-
-		$standa_price = get_field('standa_price', 'option');
-
-		$field_values = array(
-			'standa-product-name' => 'Standa',
-			'standa-product-price' => $standa_price,
-			'standa-product-quantity' => 1
-		);
-
-        gravity_form_enqueue_scripts($form, true);
-    	
-        //gravity_form( $id_or_title, $display_title = true, $display_description = true, $display_inactive = false, $field_values = null, $ajax = false, $tabindex, $echo = true );
-    	gravity_form($id = $form, $display_title = true, $display_description = true, $display_inactive = false, $field_values = $field_values, $ajax = true, $tabindex = 1);
-    ?>
-	</div>
-</div>
 
 <!-- script files should be placed at the bottom for performance reasons -->
 <?php wp_footer(); ?>

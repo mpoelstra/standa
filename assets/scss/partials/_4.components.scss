@@ -302,6 +302,7 @@
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	text-transform: lowercase;
 
 	@include respond-to(handhelds) {
 		margin: 0;
@@ -316,5 +317,13 @@
 		background: #F6F6F6;
 		border-left: 3px solid #E13B55;
 		width: 100%;
+	}
+
+	.breadcrumb_prefix {
+		text-transform: none;
+	}
+	
+	a.post {
+		padding: 0;
 	}
 }

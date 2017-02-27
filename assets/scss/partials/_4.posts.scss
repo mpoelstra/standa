@@ -47,6 +47,8 @@ img.alignnone { max-width: 100% !important; height: auto !important; }
         font-size: 2.5rem;
         margin-bottom: 2rem;
         line-height: 4rem;
+        font-weight: 300;
+        text-transform: none;
 
          @include respond-to(handhelds) {
             font-size: 2rem;
@@ -55,7 +57,25 @@ img.alignnone { max-width: 100% !important; height: auto !important; }
         }
     }
 
+    h3 {
+        font-size: 2.2rem;
+        @include respond-to(handhelds) {
+            font-size: 1.8rem;
+        }
+    }
+
     @extend %pages;
+
+    ul li {
+        background: url('assets/images/listsquare.png') 2px 11px no-repeat;
+        list-style: none;
+        margin: 0;
+        padding: 0 0 0 20px;
+
+        @include respond-to(handhelds) {
+            background-position: 2px 8px;
+        }
+    }
 
     .post_proza {
         padding-top: 50px;

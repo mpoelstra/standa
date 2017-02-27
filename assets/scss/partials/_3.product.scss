@@ -18,6 +18,12 @@
         top: 0;
         right: 0;
         height: 100%;
+
+        @include respond-to(handhelds) {
+            right: auto;
+            top: 65px;  
+            height: calc(100% - 65px);
+        }
     }
 
     .menu_item {
@@ -110,106 +116,7 @@
 }
 
 .product_btn {
-    @extend %btn;
-}
-
-.product-overlay {
-    top: 0;
-    left: 0;
-    display: none;
-    position: fixed;
-    z-index: 10;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-.product-form {
-
-    position: fixed;
-    display: none;
-    z-index: 11;
-    width: 700px;
-    height: 600px;
-    top: 50%;
-    left: 50%;
-    margin-left: -350px;
-    margin-top: -300px;
-    background: white;
-    border: 1px solid $black;
-    border-bottom-width: 3px;
-
-    .product-form_inner {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        right: 0px;
-        bottom: 0px;
-        padding: 50px;
-        overflow-x: hidden;
-        overflow-y: auto; /* has to be scroll, not auto */
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .product-form_close {
-        cursor: pointer;
-        margin: 0;
-        padding: 0;
-        border: 0;
-        width: 40px;
-        height: 40px;
-        border-radius: 100%;
-        background: $black;
-        position: absolute;
-        top: -20px;
-        right: -20px;
-        color: white;
-        font-weight: 300;
-        text-transform: uppercase;
-        z-index: 3;
-
-        &:focus {
-            outline: 0;
-        }
-
-        &:before, &:after {
-            position: absolute;
-            left: 19px;
-            top: 10px;
-            content: ' ';
-            height: 20px;
-            width: 2px;
-            background-color: white;
-        }
-        &:before {
-            transform: rotate(45deg);
-        }
-        &:after {
-            transform: rotate(-45deg);
-        }
-
-        @include respond-to(handhelds) {
-            width: 20px;
-            height: 20px;
-            top: -10px;
-            right: -10px;
-            &:before, &:after {
-                left: 9px;
-                top: 5px;
-                height: 10px;
-            }
-        }
-    }
-
-    @include respond-to(handhelds) {
-        width: 90%;
-        height: 80%;
-        margin: 0;
-        left: 5%;
-        top: 10%;
-
-         .product-form_inner {
-            padding: 30px;
-        }
-    }
+    @extend %btnred;
+    display: inline-block;
+    line-height: 50px;
 }

@@ -7,7 +7,8 @@
                     if ($page['standa_item_title']) { ?>
                         <li class="pages_item">
                             <div class="page">
-                                <div id="<?php echo strtolower(str_replace(' ', '', $page['standa_item_title'])); ?>" class="page_title"><?php echo $page['standa_item_title']; ?></div>
+                                <div id="<?php echo strtolower(standa_clean($page['standa_item_title'])); ?>" class="page_title"><?php echo $page['standa_item_title']; ?></div>
+                                
                                 <div class="page_content">
                                     <?php 
                                         $image = $page['standa_item_image']['sizes']['large'];

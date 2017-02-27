@@ -33,12 +33,35 @@ form { }
 }
 
 .gsection_title {
-	font-size: 1.6rem;
+	font-size: 3rem;
     font-weight: 300;
-    line-height: 2rem;
-    margin-bottom: 1rem;
-	color: $red;
+    line-height: 2.5rem;
+	color: $black;
+	display: inline-block;
+	@include respond-to(handhelds) {
+		font-size: 2.5rem;
+	}
 }
+
+.gsection_description {
+	font-size: 1.8rem;
+	color: $red;
+	font-weight: 300;
+
+	@include respond-to(handhelds) {
+		font-size: 1.6rem;
+	}
+
+	span {
+		display: block;
+		@include respond-to(handhelds) {
+			display: inline;
+		}
+	}
+	
+}
+
+
 
 .gform_wrapper .validation_message,
 .gform_wrapper .validation_error {
@@ -75,6 +98,150 @@ form { }
 }
 
 .gform_wrapper {
+
+	.gfield.input-left {
+		padding-left: 40%;
+
+		@include respond-to(handhelds) {
+			padding-left: 0;
+		}
+
+		&.input-standa-color {
+			float: left;
+			padding-left: 5%;
+			padding-top: 30px;
+			@include respond-to(handhelds) {
+				padding-left: 0;
+				padding-top: 15px;
+			}
+			&:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+		}
+
+		&.input-standa-quantity {
+			float: left;
+			padding-left: 5%;
+			padding-top: 30px;
+			&:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+
+			@include respond-to(handhelds) {
+				padding-top: 15px;
+			}
+
+			select {
+				width:100px;
+				padding: 5px;
+				@include respond-to(handhelds) {
+					width: 70px;
+					padding: 5px 2px;
+				}
+			}
+		}
+
+		&.input-standa-option {
+			float: left;
+			padding-left: 5%;
+			padding-top: 30px;
+			&:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+
+			@include respond-to(handhelds) {
+				padding-top: 15px;
+			}
+
+			select {
+				width: 100px;
+				padding: 5px;
+				@include respond-to(handhelds) {
+					width: 70px;
+					padding: 5px 2px;
+				}
+			}
+		}
+
+		&.input-standa-product {
+			float: right;
+			padding-top: 30px;
+			padding-left: 0;
+
+			@include respond-to(handhelds) {
+				padding-top: 15px;
+			}
+
+			&:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+		}
+
+		&.input-standa-total {
+			padding: 0;
+    		position: absolute;
+    		right: 15px;
+    		top: auto;
+    		margin-top: 125px !important;
+			text-align: right;
+
+			@include respond-to(handhelds) {
+				margin-top: 110px !important;
+			}
+
+			&:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+		}
+	}
+	.gfield.gsection {
+		float:left;
+		width: 35%;
+		padding-top: 30px;
+		clear:left;
+
+		@include respond-to(handhelds) {
+			float: none;
+			width: 100%;
+		}
+
+		&.section-payment {
+			padding-top: 112px;
+		}
+
+		&.section-data {
+			@include respond-to(handhelds) {
+				padding-top: 0;
+			}
+		}
+	}
+
+	.gfield.gsection + .gfield.input-left {
+		padding-top: 30px;
+
+		@include respond-to(handhelds) {
+			padding-top: 15px;
+		}
+
+		&.input-padding {
+			padding-top: 135px;
+			clear:right;
+			@include respond-to(handhelds) {
+				padding-top: 15px;
+			}
+		}
+	} 
+
 	.gfield_label {
 		display: none;
 	}
@@ -90,6 +257,65 @@ form { }
 	ul li {
 		list-style: none !important;
 		margin: 0 !important;
+	}
+
+	.gfield_price {
+		.gfield_label {
+			display: block;
+			//font-weight: bold;
+			//text-transform: uppercase;
+			color: $red;
+			font-size: 1.6rem;
+			padding-bottom: 4px;
+			font-weight: 300;
+		}
+
+		&.input-standa-product {
+			overflow: hidden;
+			.gfield_label {
+				display: none;
+			}
+			.ginput_product_price {
+				font-size: 1.6rem;
+				font-weight: bold;
+			}
+		}
+
+		&.input-standa-total {
+			.gfield_label {
+				float: left;
+				color: $black;
+				font-size: 1.6rem;
+				font-weight: 300;
+				padding-right: 15px;
+				text-transform: uppercase;
+			}
+			.ginput_container {
+				float: left;
+			}
+			.ginput_total {
+				color: $black;
+				font-size: 2rem;
+				font-weight: bold;
+			}
+
+			.gfield_description {
+				text-align: left;
+				font-size: 1.2rem;
+				line-height: 2rem;
+			}
+		}
+
+		
+
+		.ginput_product_price_label {
+			color: #E13B55;
+    		font-size: 1.6rem;
+    		padding-bottom: 4px;
+    		font-weight: 300;
+			display: block;
+			text-align: right;
+		}
 	}
 }
 
@@ -112,6 +338,11 @@ form { }
 	line-height:2.5rem;
   	color: $textColor;
   	font-size: 1.4rem;
+	font-family: 'Open Sans', sans-serif;
+
+	-moz-appearance: none; 
+	-webkit-appearance: none; 
+	appearance: none;
 
 	@include respond-to(handhelds) {
 		font-size: 1.3rem;
@@ -126,6 +357,11 @@ form { }
 
 .gform_wrapper select {
 	height: 37px;
+
+	background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNC45NSIgaGVpZ2h0PSIxMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIxLjQxIDQuNjcgMi40OCAzLjE4IDMuNTQgNC42NyAxLjQxIDQuNjciLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMy41NCA1LjMzIDIuNDggNi44MiAxLjQxIDUuMzMgMy41NCA1LjMzIi8+PC9zdmc+) no-repeat right 50%;
+	-moz-appearance: none; 
+	-webkit-appearance: none; 
+	appearance: none;
 }
 
 .gform_wrapper textarea {
@@ -139,8 +375,11 @@ form { }
 .gform_previous_button,
 .gform_next_button,
 .gform_wrapper input[type=submit] {
-	@extend %btn;
+	@extend %btnred;
 	float: right;
+	-moz-appearance: none; 
+	-webkit-appearance: none; 
+	appearance: none;
 
 	@include respond-to(handhelds) {
 		float: none;
@@ -183,17 +422,7 @@ form { }
 	text-align: center;
 }
 
-.gfield_price {
-	label {
-		display: block !important;
-    	font-weight: bold !important;
-    	text-transform: uppercase !important;
-	}
 
-	.ginput_total {
-		color: $red;
-	}
-}
 
 .gform_wrapper .payment-method,
 .gform_wrapper .payment-bank {
