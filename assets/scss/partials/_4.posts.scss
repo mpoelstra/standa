@@ -78,7 +78,17 @@ img.alignnone { max-width: 100% !important; height: auto !important; }
         }
     }
 
+    .gform_wrapper {
+        width: 50%;
+        @include respond-to(handhelds) {
+            width: 100%;
+        }
+    }
+
     &.post--images {
+        .gform_wrapper {
+            width: 100%;
+        }
         .post_proza {
             overflow: hidden;
             .proza_content {

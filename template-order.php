@@ -43,6 +43,10 @@
                         //gravity_form( $id_or_title, $display_title = true, $display_description = true, $display_inactive = false, $field_values = null, $ajax = false, $tabindex, $echo = true );
                         gravity_form($id = $form, $display_title = false, $display_description = true, $display_inactive = false, $field_values = $field_values, $ajax = true, $tabindex = 1);
                     ?>
+                        <div class="logos">
+                            <a class="logo-keurmerk" href="http://www.keurmerk.info" target="_blank"><img src="<?php echo bloginfo('template_url'); ?>/assets/images/Webshop-Keurmerk_2011.png" alt="keurmerk"></a>
+                            <a class="logo-ideal" href="https://www.ideal.nl/" target="_blank"><img src="<?php echo bloginfo('template_url'); ?>/assets/images/iDEAL-klein.gif" alt="ideal"></a>
+                        </div>
                     </div>
                 </div>
 			</div>

@@ -17,6 +17,7 @@
 							<div class="box">
 								<h2 class="logo">Standa</h2>
 								<?php echo $footerText; ?>
+								<a class="logo-keurmerk" href="http://www.keurmerk.info" target="_blank"><img src="<?php echo bloginfo('template_url'); ?>/assets/images/Webshop-Keurmerk_2011.png" alt="keurmerk"></a>
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-3">

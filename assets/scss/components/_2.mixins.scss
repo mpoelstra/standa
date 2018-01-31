@@ -76,34 +76,41 @@ $break-menu: 1023px;
 
 %pages {
 	ol,
+	ul {
+		margin-bottom: 1.4rem;
+		ol,
 		ul {
-			margin-bottom: 1.4rem;
-			ol,
-			ul {
-				margin:0;
-			}
+			margin:0;
 		}
-		li { 
-			margin: 0 0 0 20px;
-			list-style: square;
-		}
+	}
+	li { 
+		margin: 0 0 0 20px;
+		list-style: square;
+	}
+	ol li {
+		list-style: decimal;
+		margin-left: 16px;
 		ol li {
-			list-style: decimal;
-			margin-left: 16px;
-			ol li {
-				list-style: lower-latin;
-				margin-left: 2.1rem;
-			}
+			list-style: lower-latin;
+			margin-left: 2.1rem;
+		}
+	}
+
+	ul li {
+		background: url('assets/images/listsquare.png') 2px 11px no-repeat;
+		list-style: none;
+		margin: 0;
+		padding: 0 0 0 20px;
+
+		@include respond-to(handhelds) {
+			background-position: 2px 8px;
 		}
 
-		ul li {
-        background: url('assets/images/listsquare.png') 2px 11px no-repeat;
-        list-style: none;
-        margin: 0;
-        padding: 0 0 0 20px;
-
-        @include respond-to(handhelds) {
-            background-position: 2px 8px;
-        }
-    }
+		&.gfield {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			background: none;
+		}
+	}
 }

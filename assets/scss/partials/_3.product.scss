@@ -14,6 +14,7 @@
     z-index: 1;
     padding: 30px;
 
+    .page-template-template-actie &,
     .home & {
         top: 0;
         right: 0;
@@ -103,8 +104,18 @@
     p {
         padding: 0;
     }
+
+    &.product_info--richttext {
+        p {
+            padding-bottom: 1.4rem;
+            &:last-child {
+                padding-bottom: 0;
+            }
+        }
+    }
 }
 
+.product_teaser,
 .product_price {
     font-size: 3.6rem;
     color: $black;
@@ -119,4 +130,34 @@
     @extend %btnred;
     display: inline-block;
     line-height: 50px;
+}
+
+.product-form {
+    position: relative;
+    .logos {
+        position: absolute;
+        bottom: 0;
+        width: 300px;
+        left: 40%;
+        a {
+            display: block;
+            float: left;
+            &:first-child {
+                margin-right: 20px;
+            }
+
+            &.logo-keurmerk {
+                margin-top: 6px;
+            }
+        }
+
+        @include respond-to(handhelds) {
+            position: static;
+            margin-top: 20px;
+        }
+    }
+}
+
+.product_alt {
+    padding-top: 5px;
 }

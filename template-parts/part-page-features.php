@@ -1,12 +1,12 @@
 <div class="row features">
 	<div class="col-xs-12">
 		<?php
-			$title = get_field('standa_feature-title', 'option') ? get_field('standa_feature-title', 'option') : 'Waarom de STANDA';
+			$title = get_field('standa_feature-title') ? get_field('standa_feature-title') : 'Waarom de STANDA';
 		?>
 		<h1 id="waarom" class="features_title"><?php echo $title; ?></h1>
 	</div>
 	<?php
-		$quicklinks = get_field('standa_features', 'option');
+		$quicklinks = get_field('standa_features');
 		foreach ($quicklinks as $key => $quicklink) {
 			$linkTitle = $quicklink['standa_feature_title'];
 			$linkText = $quicklink['standa_feature_text'];

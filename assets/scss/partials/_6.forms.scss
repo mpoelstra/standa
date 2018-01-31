@@ -170,6 +170,7 @@ form { }
 		}
 
 		&.input-standa-product {
+			visibility: hidden;
 			float: right;
 			padding-top: 30px;
 			padding-left: 0;
@@ -252,11 +253,6 @@ form { }
 		margin: 0;
 		padding: 17px 0 0 0;
 		overflow: hidden;
-	}
-
-	ul li {
-		list-style: none !important;
-		margin: 0 !important;
 	}
 
 	.gfield_price {

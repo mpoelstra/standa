@@ -2,7 +2,7 @@
 function my_scripts() {
 	// CSS first
 	if ( !is_admin() ) {
-		wp_enqueue_style( 'style', get_stylesheet_directory_uri().'/style.css', null, '1.9', 'all' );
+		wp_enqueue_style( 'style', get_stylesheet_directory_uri().'/style.css', null, '2.3', 'all' );
 		wp_enqueue_style( 'slick', get_stylesheet_directory_uri().'/assets/slick/slick.css', null, '1.0', 'all' );
 		wp_enqueue_style( 'magnificpopup', get_stylesheet_directory_uri().'/assets/magnificpopup/magnific-popup.css', null, '1.0', 'all' );
 	}
